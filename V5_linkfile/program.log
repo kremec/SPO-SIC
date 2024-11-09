@@ -1,0 +1,24 @@
+***** Section <default> *****
+Stats: size=37  blocks=37  symbols=6  literals=0  relocations=7
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  00025    10    3    0
+Symbols
+    name        hex       dec  scope     kind      type      description
+    halt     000022        34  local     relative  code      label
+    main     000000         0  exported  relative  code      label
+    sinit    000000         0  imported  relative  notlabel  
+    sp       000000         0  imported  relative  notlabel  
+    spop     000000         0  imported  relative  notlabel  
+    spush    000000         0  imported  relative  notlabel  
+Literals
+    label   definition
+Relocations
+    address length flag symbol
+    00001        5  +    sinit
+    00008        5  +    sp
+    0000C        5  +    spush
+    00013        5  +    sp
+    00017        5  +    spush
+    0001B        5  +    spop
+    0001F        5  +    spop

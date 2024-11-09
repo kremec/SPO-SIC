@@ -1,0 +1,35 @@
+00000            stack  START   0    
+00000                   EXTDEF  sinit,spush,spop,sp    
+                  
+                  . Nastavi sp na zaÄ?etek sklada
+00000  0F2033    sinit  STA     stka    . Shranimo A
+                  
+00003  012033           LDA     #stk    . sp nastavimo na zaÄ?etek sklada
+00006  0F202A           STA     sp    
+                  
+00009  03202A           LDA     stka    . Obnovimo A
+0000C  4F0000           RSUB        
+                  
+                  . PoveÄ?a sp za eno besedo
+0000F  0F2024    spush  STA     stka    . Shranimo A
+00012  03201E           LDA     sp    . PoveÄ?amo sp
+00015  190003           ADD     #3    
+00018  0F2018           STA     sp    
+0001B  032018           LDA     stka    . Obnovimo A
+0001E  4F0000           RSUB        
+                  
+                  . ZmanjÅ¡a sp za eno besedo
+00021  0F2012    spop   STA     stka    . Shranimo A
+00024  03200C           LDA     sp    . ZmanjÅ¡amo sp
+00027  1D0003           SUB     #3    
+0002A  0F2006           STA     sp    
+0002D  032006           LDA     stka    . Obnovimo A
+00030  4F0000           RSUB        
+                  
+                  
+                  
+00033  000000    sp     WORD    0    
+00036  000000    stka   RESW    1    
+00039  00....00  stk    RESW    1000    
+                  
+00BF1                   END     stack    

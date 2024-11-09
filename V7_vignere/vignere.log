@@ -1,0 +1,32 @@
+***** Section <default> *****
+Stats: size=75  blocks=75  symbols=18  literals=0  relocations=3
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  0004B    17    9    1
+Symbols
+    name        hex       dec  scope     kind      type      description
+    char     000000         0  imported  relative  notlabel  
+    ciph     000037        55  local     relative  data      label
+    ciphe    00003C        60  local     absolute  notlabel  *
+    ciphl    000005         5  local     absolute  notlabel  ciphe-ciph
+    halt     000031        49  local     relative  code      label
+    in       000034        52  local     relative  data      label
+    key      00003C        60  local     relative  data      label
+    loop     000004         4  local     relative  code      label
+    loope    00002D        45  local     relative  code      label
+    main     000000         0  exported  relative  code      label
+    nl       000000         0  imported  relative  notlabel  
+    out      000041        65  local     relative  data      label
+    print    00001D        29  local     relative  code      label
+    sinit    000000         0  imported  relative  notlabel  
+    sp       000000         0  imported  relative  notlabel  
+    spop     000000         0  imported  relative  notlabel  
+    spush    000000         0  imported  relative  notlabel  
+    string   000000         0  imported  relative  notlabel  
+Literals
+    label   definition
+Relocations
+    address length flag symbol
+    00001        5  +    sinit
+    00021        5  +    char
+    0002E        5  +    nl

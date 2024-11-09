@@ -1,0 +1,260 @@
+00000            main    START   0    
+                  
+                  . Sklad
+00000                    EXTREF  sinit,spop,spush,sp    
+00000  4B100000         +JSUB    sinit    
+                  
+00004  E32207            TD      in    
+00007  E32207            TD      out    
+                  
+0000A  DB2201    mainl   RD      in    
+0000D  290000            COMP    #0    
+00010  332023            JEQ     halt    
+00013  29000D            COMP    #13    
+00016  332FF1            JEQ     mainl    
+00019  29000A            COMP    #10    
+0001C  33200C            JEQ     prtlf    
+                  
+0001F  4B2017            JSUB    getch    
+00022  4B21A5            JSUB    prtch    
+                  
+00025  DF21E9            WD      out    
+00028  3F2FDF            J       mainl    
+                  
+0002B  B400      prtlf   CLEAR   A    
+0002D  01000A            LDA     #10    
+00030  DF21DE            WD      out    
+00033  3F2FD4            J       mainl    
+                  
+00036  3F2FFD    halt    J       halt    
+                  
+00039  16100000  getch  +STL     @sp    
+0003D  4B100000         +JSUB    spush    
+00041  7E100000         +STS     @sp    
+00045  4B100000         +JSUB    spush    
+                  
+00049  AC04              RMO     A,S    
+0004B  5321C9    checkc  LDCH    a    
+0004E  A004              COMPR   A,S    
+00050  3320C8            JEQ     isa    
+                  
+00053  5321C6            LDCH    b    
+00056  A004              COMPR   A,S    
+00058  3320C6            JEQ     isb    
+                  
+0005B  5321C7            LDCH    c    
+0005E  A004              COMPR   A,S    
+00060  3320C4            JEQ     isc    
+                  
+00063  5321C7            LDCH    d    
+00066  A004              COMPR   A,S    
+00068  3320C2            JEQ     isd    
+                  
+0006B  5321C6            LDCH    e    
+0006E  A004              COMPR   A,S    
+00070  3320C0            JEQ     ise    
+                  
+00073  5321C2            LDCH    f    
+00076  A004              COMPR   A,S    
+00078  3320BE            JEQ     isf    
+                  
+0007B  5321C3            LDCH    g    
+0007E  A004              COMPR   A,S    
+00080  3320BC            JEQ     isg    
+                  
+00083  5321C1            LDCH    h    
+00086  A004              COMPR   A,S    
+00088  3320BA            JEQ     ish    
+                  
+0008B  5321C3            LDCH    i    
+0008E  A004              COMPR   A,S    
+00090  3320B8            JEQ     isi    
+                  
+00093  5321C1            LDCH    j    
+00096  A004              COMPR   A,S    
+00098  3320B6            JEQ     isj    
+                  
+0009B  5321C0            LDCH    k    
+0009E  A004              COMPR   A,S    
+000A0  3320B4            JEQ     isk    
+                  
+000A3  5321BE            LDCH    l    
+000A6  A004              COMPR   A,S    
+000A8  3320B2            JEQ     isl    
+                  
+000AB  5321BF            LDCH    m    
+000AE  A004              COMPR   A,S    
+000B0  3320B0            JEQ     ism    
+                  
+000B3  5321BB            LDCH    n    
+000B6  A004              COMPR   A,S    
+000B8  3320AE            JEQ     isn    
+                  
+000BB  5321B8            LDCH    o    
+000BE  A004              COMPR   A,S    
+000C0  3320AC            JEQ     iso    
+                  
+000C3  5321B5            LDCH    p    
+000C6  A004              COMPR   A,S    
+000C8  3320AA            JEQ     isp    
+                  
+000CB  5321B5            LDCH    q    
+000CE  A004              COMPR   A,S    
+000D0  3320A8            JEQ     isq    
+                  
+000D3  5321B4            LDCH    r    
+000D6  A004              COMPR   A,S    
+000D8  3320A6            JEQ     isr    
+                  
+000DB  5321B3            LDCH    s    
+000DE  A004              COMPR   A,S    
+000E0  3320A4            JEQ     iss    
+                  
+000E3  5321B3            LDCH    t    
+000E6  A004              COMPR   A,S    
+000E8  3320A2            JEQ     ist    
+                  
+000EB  5321AE            LDCH    u    
+000EE  A004              COMPR   A,S    
+000F0  3320A0            JEQ     isu    
+                  
+000F3  5321AD            LDCH    v    
+000F6  A004              COMPR   A,S    
+000F8  33209E            JEQ     isv    
+                  
+000FB  5321AE            LDCH    w    
+000FE  A004              COMPR   A,S    
+00100  33209C            JEQ     isw    
+                  
+00103  5321AC            LDCH    x    
+00106  A004              COMPR   A,S    
+00108  33209A            JEQ     isx    
+                  
+0010B  5321AC            LDCH    y    
+0010E  A004              COMPR   A,S    
+00110  332098            JEQ     isy    
+                  
+00113  5321AB            LDCH    z    
+00116  A004              COMPR   A,S    
+00118  332096            JEQ     isz    
+                  
+0011B  0120F9    isa     LDA     #a    
+0011E  3F2096            J       printe    
+00121  0120F8    isb     LDA     #b    
+00124  3F2090            J       printe    
+00127  0120FB    isc     LDA     #c    
+0012A  3F208A            J       printe    
+0012D  0120FD    isd     LDA     #d    
+00130  3F2084            J       printe    
+00133  0120FE    ise     LDA     #e    
+00136  3F207E            J       printe    
+00139  0120FC    isf     LDA     #f    
+0013C  3F2078            J       printe    
+0013F  0120FF    isg     LDA     #g    
+00142  3F2072            J       printe    
+00145  0120FF    ish     LDA     #h    
+00148  3F206C            J       printe    
+0014B  012103    isi     LDA     #i    
+0014E  3F2066            J       printe    
+00151  012103    isj     LDA     #j    
+00154  3F2060            J       printe    
+00157  012104    isk     LDA     #k    
+0015A  3F205A            J       printe    
+0015D  012104    isl     LDA     #l    
+00160  3F2054            J       printe    
+00163  012107    ism     LDA     #m    
+00166  3F204E            J       printe    
+00169  012105    isn     LDA     #n    
+0016C  3F2048            J       printe    
+0016F  012104    iso     LDA     #o    
+00172  3F2042            J       printe    
+00175  012103    isp     LDA     #p    
+00178  3F203C            J       printe    
+0017B  012105    isq     LDA     #q    
+0017E  3F2036            J       printe    
+00181  012106    isr     LDA     #r    
+00184  3F2030            J       printe    
+00187  012107    iss     LDA     #s    
+0018A  3F202A            J       printe    
+0018D  012109    ist     LDA     #t    
+00190  3F2024            J       printe    
+00193  012106    isu     LDA     #u    
+00196  3F201E            J       printe    
+00199  012107    isv     LDA     #v    
+0019C  3F2018            J       printe    
+0019F  01210A    isw     LDA     #w    
+001A2  3F2012            J       printe    
+001A5  01210A    isx     LDA     #x    
+001A8  3F200C            J       printe    
+001AB  01210C    isy     LDA     #y    
+001AE  3F2006            J       printe    
+001B1  01210D    isz     LDA     #z    
+001B4  3F2000            J       printe    
+                  
+                  
+001B7  4B100000  printe  +JSUB    spop    
+001BB  6E100000         +LDS     @sp    
+001BF  4B100000         +JSUB    spop    
+001C3  0A100000         +LDL     @sp    
+001C7  4F0000            RSUB        
+                  
+                  
+001CA  16100000  prtch  +STL     @sp    
+001CE  4B100000         +JSUB    spush    
+001D2  12100000         +STX     @sp    
+001D6  4B100000         +JSUB    spush    
+                  
+001DA  0F2037            STA     currch    
+                  
+001DD  032034    prtl    LDA     currch    
+001E0  190001            ADD     #1    
+001E3  0F202E            STA     currch    
+001E6  B400              CLEAR   A    
+                  
+001E8  52100214         +LDCH    @currch    
+001EC  290020            COMP    #32    
+001EF  332FC5            JEQ     printe    
+001F2  DF201C            WD      out    
+001F5  2D0000            TIX     #0    
+001F8  3F2FE2            J       prtl    
+                  
+001FB  4B100000  prtche  +JSUB    spop    
+001FF  06100000         +LDX     @sp    
+00203  4B100000         +JSUB    spop    
+00207  0A100000         +LDL     @sp    
+0020B  4F0000            RSUB        
+                  
+                  
+                  
+0020E  A10000    in      WORD    X'A1'    
+00211  A00000    out     WORD    X'A0'    
+                  
+00214  000000    currch  RESW    1    
+00217  61....20  a       BYTE    C'a??- '    
+0021C  62....20  b       BYTE    C'b-?????? '    
+00225  63....20  c       BYTE    C'c-??-?? '    
+0022D  64....20  d       BYTE    C'd-???? '    
+00234  65C2B720  e       BYTE    C'e?? '    
+00238  66....20  f       BYTE    C'f????-?? '    
+00241  67....20  g       BYTE    C'g--?? '    
+00247  68....20  h       BYTE    C'h???????? '    
+00251  69....20  i       BYTE    C'i???? '    
+00257  6A....20  j       BYTE    C'j??--- '    
+0025E  6B....20  k       BYTE    C'k-??- '    
+00264  6C....20  l       BYTE    C'l??-???? '    
+0026D  6D2D2D20  m       BYTE    C'm-- '    
+00271  6E....20  n       BYTE    C'n-?? '    
+00276  6F....20  o       BYTE    C'o--- '    
+0027B  70....20  p       BYTE    C'p??--?? '    
+00283  71....20  q       BYTE    C'q--??- '    
+0028A  72....20  r       BYTE    C'r??-?? '    
+00291  73....20  s       BYTE    C's?????? '    
+00299  742D20    t       BYTE    C't- '    
+0029C  75....20  u       BYTE    C'u????- '    
+002A3  76....20  v       BYTE    C'v??????- '    
+002AC  77....20  w       BYTE    C'w??-- '    
+002B2  78....20  x       BYTE    C'x-????- '    
+002BA  79....20  y       BYTE    C'y-??-- '    
+002C1  7A....20  z       BYTE    C'z--???? '    
+                  
+002C9                    END     main    

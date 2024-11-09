@@ -1,0 +1,93 @@
+00000            main   START   0    
+                  
+                  . Sklad
+00000                   EXTREF  sinit,spop,spush,sp    
+00000  4B100000        +JSUB    sinit    
+                  
+                  . Zaslon
+00004                   EXTREF  fill,prntch,row,col    
+                  
+                  . Std
+00004                   EXTREF  char,nl,string,num    
+                  
+00004  4B10002B  mainl  +JSUB    rdnum    . Branje števila iz datoteke FA
+                  
+00008  290000           COMP    #0    . Ko pridemo do ni�?le zaklju�?imo
+0000B  33200F           JEQ     maine    
+                  
+0000E  4B10007E        +JSUB    fact    . Izra�?unamo fakulteto števila
+                  
+00012  4B100000        +JSUB    num    . Izpišemo število na stdout
+00016  4B100000        +JSUB    nl    
+                  
+0001A  3F2FE7           J       mainl    
+                  
+0001D  190030    maine  ADD     #48    
+00020  4B100000        +JSUB    char    
+00024  4B100000        +JSUB    nl    
+00028  3F2FFD    halt   J       halt    
+                  
+0002B  16100000  rdnum  +STL     @sp    
+0002F  4B100000        +JSUB    spush    
+00033  7E100000        +STS     @sp    
+00037  4B100000        +JSUB    spush    
+0003B  86100000        +STT     @sp    
+0003F  4B100000        +JSUB    spush    
+                  
+00043  75000A           LDT     #10    
+00046  B400      rdlp   CLEAR   A    . Beremo
+00048  E3207F           TD      in    
+0004B  DB207C           RD      in    
+0004E  29000D           COMP    #13    . CR -> konec vrstice
+00051  33200A           JEQ     numrd    
+                  
+00054  1D0030           SUB     #48    
+00057  9854             MULR    T,S    
+00059  9004             ADDR    A,S    
+                  
+0005B  3F2FE8           J       rdlp    
+0005E  DB2069    numrd  RD      in    . Preberemo še LF
+00061  AC40             RMO     S,A    
+                  
+00063  4B100000        +JSUB    spop    
+00067  76100000        +LDT     @sp    
+0006B  4B100000        +JSUB    spop    
+0006F  6E100000        +LDS     @sp    
+00073  4B100000        +JSUB    spop    
+00077  0A100000        +LDL     @sp    
+0007B  4F0000           RSUB        
+                  
+0007E  16100000  fact  +STL     @sp    
+00082  4B100000        +JSUB    spush    
+00086  7E100000        +STS     @sp    
+0008A  4B100000        +JSUB    spush    
+                  
+0008E  6D0001           LDS     #1    
+00091  4B2013           JSUB    frec    
+                  
+00094  4B100000        +JSUB    spop    
+00098  6E100000        +LDS     @sp    
+0009C  4B100000        +JSUB    spop    
+000A0  0A100000        +LDL     @sp    
+000A4  4F0000           RSUB        
+                  
+000A7  16100000  frec  +STL     @sp    
+000AB  4B100000        +JSUB    spush    
+                  
+000AF  290001           COMP    #1    . Če smo prišli do 1 lahko nehamo z množenjem
+000B2  332008           JEQ     frece    
+                  
+000B5  9804             MULR    A,S    . Sicer S = S*A, A-- in ponovimo
+000B7  1D0001           SUB     #1    
+000BA  4B2FEA           JSUB    frec    
+                  
+000BD  AC40      frece  RMO     S,A    . Rezultat vrnemo v A
+000BF  4B100000        +JSUB    spop    
+000C3  0A100000        +LDL     @sp    
+000C7  4F0000           RSUB        
+                  
+                  
+                  
+000CA  FA0000    in     WORD    X'FA'    
+                  
+000CD                   END     main    

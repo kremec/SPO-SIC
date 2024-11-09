@@ -1,0 +1,40 @@
+00000            screen   START   0    
+00000                     EXTDEF  fill,prntch,row,col    
+                  
+                  . Po celem zaslonu izpiše znak iz A
+00000  5790B800  fill    +STCH    scr,X    
+00004  2D07D0             TIX     #scrlen    
+00007  3B2FF6             JLT     fill    
+0000A  332FF3             JEQ     fill    
+0000D  B410               CLEAR   X    
+0000F  4F0000             RSUB        
+                  
+                  . Izpis znaka iz A na <row>:<col> mesto zaslona
+00012  13100041  prntch  +STX     prntx    
+00016  7F100044          +STS     prnts    
+0001A  AC04               RMO     A,S    
+0001C  0310003B          +LDA     row    
+00020  21100050          +MUL     #scrcols    
+00024  1B10003E          +ADD     col    
+00028  AC01               RMO     A,X    
+0002A  AC40               RMO     S,A    
+0002C  5790B800          +STCH    scr,X    
+00030  07100041          +LDX     prntx    
+00034  6F100044          +LDS     prnts    
+00038  4F0000             RSUB        
+                  
+                  
+                  
+0003B            scrcols  EQU     80    
+0003B            scrrows  EQU     25    
+0003B            scrlen   EQU     scrcols*scrrows    
+                  
+0003B  000000    row      RESW    1    
+0003E  000000    col      RESW    1    
+00041  000000    prntx    RESW    1    
+00044  000000    prnts    RESW    1    
+                  
+00047                     ORG     47104    
+0B800  00....00  scr      RESB    scrlen    
+                  
+0BFD0                     END     screen    

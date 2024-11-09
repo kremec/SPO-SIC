@@ -1,0 +1,65 @@
+***** Section <default> *****
+Stats: size=205  blocks=205  symbols=23  literals=0  relocations=31
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  000CD    59    6    0
+Symbols
+    name        hex       dec  scope     kind      type      description
+    char     000000         0  imported  relative  notlabel  
+    col      000000         0  imported  relative  notlabel  
+    fact     00007E       126  local     relative  code      label
+    fill     000000         0  imported  relative  notlabel  
+    frec     0000A7       167  local     relative  code      label
+    frece    0000BD       189  local     relative  code      label
+    halt     000028        40  local     relative  code      label
+    in       0000CA       202  local     relative  data      label
+    main     000000         0  exported  relative  code      label
+    maine    00001D        29  local     relative  code      label
+    mainl    000004         4  local     relative  code      label
+    nl       000000         0  imported  relative  notlabel  
+    num      000000         0  imported  relative  notlabel  
+    numrd    00005E        94  local     relative  code      label
+    prntch   000000         0  imported  relative  notlabel  
+    rdlp     000046        70  local     relative  code      label
+    rdnum    00002B        43  local     relative  code      label
+    row      000000         0  imported  relative  notlabel  
+    sinit    000000         0  imported  relative  notlabel  
+    sp       000000         0  imported  relative  notlabel  
+    spop     000000         0  imported  relative  notlabel  
+    spush    000000         0  imported  relative  notlabel  
+    string   000000         0  imported  relative  notlabel  
+Literals
+    label   definition
+Relocations
+    address length flag symbol
+    00001        5  +    sinit
+    00005        5
+    0000F        5
+    00013        5  +    num
+    00017        5  +    nl
+    00021        5  +    char
+    00025        5  +    nl
+    0002C        5  +    sp
+    00030        5  +    spush
+    00034        5  +    sp
+    00038        5  +    spush
+    0003C        5  +    sp
+    00040        5  +    spush
+    00064        5  +    spop
+    00068        5  +    sp
+    0006C        5  +    spop
+    00070        5  +    sp
+    00074        5  +    spop
+    00078        5  +    sp
+    0007F        5  +    sp
+    00083        5  +    spush
+    00087        5  +    sp
+    0008B        5  +    spush
+    00095        5  +    spop
+    00099        5  +    sp
+    0009D        5  +    spop
+    000A1        5  +    sp
+    000A8        5  +    sp
+    000AC        5  +    spush
+    000C0        5  +    spop
+    000C4        5  +    sp

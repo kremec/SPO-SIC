@@ -1,0 +1,105 @@
+00000            std      START   0    
+00000                     EXTDEF  char,nl,string,num    
+                  
+                  . Izpis znaka v A na stdout
+00000  DD0001    char     WD      #1    
+00003  4F0000             RSUB        
+                  
+                  . Izpis <\n> na stdout
+00006  171000D7  nl      +STL     nll    
+0000A  0F1000D4          +STA     nla    
+                  
+0000E  51000A             LDCH    #10    
+00011  4B100000          +JSUB    char    
+                  
+00015  031000D4          +LDA     nla    
+00019  0B1000D7          +LDL     nll    
+0001D  4F0000             RSUB        
+                  
+                  
+                  . Izpis null-terminated besedila iz pomnilnika na naslovu iz A
+                  . Primer:
+                  . str     WORD C'Test'
+                  . null    WORD 0
+                  
+00020  131000DD  string  +STX     strx    
+                  
+00024  0F1000DA          +STA     strnas    
+00028  B410               CLEAR   X    
+0002A  539000DA  strlp   +LDCH    strnas,X    
+0002E  290000             COMP    #0    . Preverimo \0 string terminator
+00031  332009             JEQ     strlpe    
+00034  DD0001             WD      #1    . Izpis znaka
+00037  2D0000             TIX     #0    . Pove�?anje odmika za 1B
+0003A  3F2FED             J       strlp    
+0003D  4F0000    strlpe   RSUB        
+                  
+                  . Izpis števila v A
+00040  171000E0  num     +STL     numl    
+00044  7F1000E3          +STS     nums    
+00048  131000E6          +STX     numx    
+0004C  B410               CLEAR   X    
+                  
+0004E  290000             COMP    #0    . Preverimo negativnost
+00051  3B2003             JLT     numneg    
+00054  3F200A             J       numpoz    
+00057  6D0001    numneg   LDS     #1    . Zastavica neg. št. za kasnejši izpis minusa
+0005A  7F1000EF          +STS     nummin    
+0005E  23208B             MUL     minena    . Pretvorimo neg. št v pozitivno
+00061  29000A    numpoz   COMP    #10    . Če je samo še ena števka pojdi na izpis
+00064  3B2027             JLT     numprt    
+00067  AC04               RMO     A,S    
+00069  25000A             DIV     #10    . Znebimo se enic
+0006C  21000A             MUL     #10    
+0006F  9404               SUBR    A,S    . V S dobimo zadnjo števko, prestavimo v A, shranimo in obnovimo A
+00071  0F1000E9          +STA     numtmp    
+00075  AC40               RMO     S,A    
+00077  579000F2          +STCH    numrez,X    
+0007B  B400               CLEAR   A    
+0007D  539000F2          +LDCH    numrez,X    
+00081  031000E9          +LDA     numtmp    
+00085  2D0000             TIX     #0    . Pove�?amo odmik za 1B
+00088  25000A             DIV     #10    . Št brez zadnje števke imamo v A
+0008B  3F2FD3             J       numpoz    
+0008E  AC04      numprt   RMO     A,S    . Stanje: nummin == 1 -> negativno, vrhnja števka v S, ostale v obratnem vrstem redu WORD po WORD v numrez
+                  . Stanje števcev: X bo števec vzvratnega sprehoda po števkah
+00090  031000EF          +LDA     nummin    
+00094  290000             COMP    #0    . Če je št negativno zapišemo v numstr '-'
+00097  332007             JEQ     numprts    
+0009A  01002D             LDA     #45    
+0009D  4B100000          +JSUB    char    
+000A1  AC40      numprts  RMO     S,A    . Izpis najve�?je števke, ki je ostala v A
+000A3  190030             ADD     #48    
+000A6  4B100000          +JSUB    char    
+000AA  AC10      numprtl  RMO     X,A    . Odmik nazaj odštevamo po 1B, dokler ne pridemo do za�?etka
+000AC  1D0001             SUB     #1    
+000AF  290000             COMP    #0    
+000B2  3B2010             JLT     numend    
+000B5  AC01               RMO     A,X    . Izpis števke
+000B7  539000F2          +LDCH    numrez,X    
+000BB  190030             ADD     #48    
+000BE  4B100000          +JSUB    char    
+000C2  3F2FE5             J       numprtl    
+                  
+000C5  071000E6  numend  +LDX     numx    
+000C9  6F1000E3          +LDS     nums    
+000CD  0B1000E0          +LDL     numl    
+000D1  4F0000             RSUB        
+                  
+                  
+                  
+000D4  000000    nla      RESW    1    
+000D7  000000    nll      RESW    1    
+                  
+000DA  000000    strnas   RESW    1    
+000DD  000000    strx     RESW    1    
+                  
+000E0  000000    numl     RESW    1    
+000E3  000000    nums     RESW    1    
+000E6  000000    numx     RESW    1    
+000E9  000000    numtmp   RESW    1    
+000EC  FFFFFF    minena   WORD    -1    . #-1 ne deluje
+000EF  000000    nummin   WORD    0    . Zastavica - negativno število
+000F2  00....00  numrez   RESB    10    . Rezultatne števke
+                  
+000FC                     END     std    

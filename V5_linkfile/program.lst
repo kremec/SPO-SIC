@@ -1,0 +1,21 @@
+00000            main  START   0    
+00000                  EXTREF  sinit,spop,spush,sp    
+                  
+                  . Inicializacija sklada
+00000  4B100000       +JSUB    sinit    
+                  
+                  . Damo 2 vrednosti na sklad
+00004  010001          LDA     #1    
+00007  0E100000       +STA     @sp    
+0000B  4B100000       +JSUB    spush    
+0000F  010002          LDA     #2    
+00012  7A100000       +STB     @sp    
+00016  4B100000       +JSUB    spush    
+                  
+0001A  4B100000       +JSUB    spop    
+                  
+0001E  4B100000       +JSUB    spop    
+                  
+00022  3F2FFD    halt  J       halt    
+                  
+00025                  END     main    

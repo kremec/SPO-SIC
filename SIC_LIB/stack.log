@@ -1,0 +1,18 @@
+***** Section <default> *****
+Stats: size=3057  blocks=3057  symbols=7  literals=0  relocations=0
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  00BF1    17    4    2
+Symbols
+    name        hex       dec  scope     kind      type      description
+    sinit    000000         0  exported  relative  code      label
+    sp       000033        51  exported  relative  data      label
+    spop     000021        33  exported  relative  code      label
+    spush    00000F        15  exported  relative  code      label
+    stack    000000         0  exported  relative  code      label
+    stk      000039        57  local     relative  data      label
+    stka     000036        54  local     relative  data      label
+Literals
+    label   definition
+Relocations
+    address length flag symbol

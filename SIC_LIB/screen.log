@@ -1,0 +1,31 @@
+***** Section <default> *****
+Stats: size=49104  blocks=49104  symbols=11  literals=0  relocations=9
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  0BFD0    18    7    5
+Symbols
+    name         hex       dec  scope     kind      type      description
+    col       00003E        62  exported  relative  data      label
+    fill      000000         0  exported  relative  code      label
+    prntch    000012        18  exported  relative  code      label
+    prnts     000044        68  local     relative  data      label
+    prntx     000041        65  local     relative  data      label
+    row       00003B        59  exported  relative  data      label
+    scr       00B800     47104  local     relative  data      label
+    scrcols   000050        80  local     absolute  notlabel  80
+    screen    000000         0  exported  relative  code      label
+    scrlen    0007D0      2000  local     absolute  notlabel  scrcols*scrrows
+    scrrows   000019        25  local     absolute  notlabel  25
+Literals
+    label   definition
+Relocations
+    address length flag symbol
+    00001        5
+    00013        5
+    00017        5
+    0001D        5
+    00021        5
+    00025        5
+    0002D        5
+    00031        5
+    00035        5

@@ -1,0 +1,59 @@
+***** Section <default> *****
+Stats: size=252  blocks=252  symbols=24  literals=0  relocations=24
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  000FC    66    5    9
+Symbols
+    name         hex       dec  scope     kind      type      description
+    char      000000         0  exported  relative  code      label
+    minena    0000EC       236  local     relative  data      label
+    nl        000006         6  exported  relative  code      label
+    nla       0000D4       212  local     relative  data      label
+    nll       0000D7       215  local     relative  data      label
+    num       000040        64  exported  relative  code      label
+    numend    0000C5       197  local     relative  code      label
+    numl      0000E0       224  local     relative  data      label
+    nummin    0000EF       239  local     relative  data      label
+    numneg    000057        87  local     relative  code      label
+    numpoz    000061        97  local     relative  code      label
+    numprt    00008E       142  local     relative  code      label
+    numprtl   0000AA       170  local     relative  code      label
+    numprts   0000A1       161  local     relative  code      label
+    numrez    0000F2       242  local     relative  data      label
+    nums      0000E3       227  local     relative  data      label
+    numtmp    0000E9       233  local     relative  data      label
+    numx      0000E6       230  local     relative  data      label
+    std       000000         0  exported  relative  code      label
+    string    000020        32  exported  relative  code      label
+    strlp     00002A        42  local     relative  code      label
+    strlpe    00003D        61  local     relative  code      label
+    strnas    0000DA       218  local     relative  data      label
+    strx      0000DD       221  local     relative  data      label
+Literals
+    label   definition
+Relocations
+    address length flag symbol
+    00007        5
+    0000B        5
+    00012        5
+    00016        5
+    0001A        5
+    00021        5
+    00025        5
+    0002B        5
+    00041        5
+    00045        5
+    00049        5
+    0005B        5
+    00072        5
+    00078        5
+    0007E        5
+    00082        5
+    00091        5
+    0009E        5
+    000A7        5
+    000B8        5
+    000BF        5
+    000C6        5
+    000CA        5
+    000CE        5

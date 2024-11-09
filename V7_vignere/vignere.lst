@@ -1,0 +1,41 @@
+00000            main   START   0    
+                  
+                  . Sklad
+00000                   EXTREF  sinit,spop,spush,sp    
+00000  4B100000        +JSUB    sinit    
+                  
+                  . Std
+00004                   EXTREF  char,nl,string    
+                  
+00004  53A030    loop   LDCH    ciph,X    
+00007  1D0061           SUB     #97    
+0000A  AC04             RMO     A,S    
+0000C  53A02D           LDCH    key,X    
+0000F  1D0061           SUB     #97    
+00012  9040             ADDR    S,A    
+                  
+00014  29001A           COMP    #26    
+00017  3B2003           JLT     print    
+0001A  1D001A           SUB     #26    
+                  
+0001D  190061    print  ADD     #97    
+00020  4B100000        +JSUB    char    
+                  
+00024  2F0005           TIX     ciphl    
+00027  332003           JEQ     loope    
+                  
+0002A  3F2FD7           J       loop    
+                  
+0002D  4B100000  loope  +JSUB    nl    
+00031  3F2FFD    halt   J       halt    
+                  
+                  
+                  
+00034  434900    in     WORD    C'CI'    
+00037  68....6F  ciph   BYTE    C'hello'    
+0003C            ciphe  EQU     *    
+0003C            ciphl  EQU     ciphe-ciph    
+0003C  6B....65  key    BYTE    C'keyke'    
+00041  00....00  out    RESB    10    
+                  
+0004B                   END     main    

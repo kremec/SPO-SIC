@@ -1,0 +1,98 @@
+***** Section <default> *****
+Stats: size=713  blocks=713  symbols=69  literals=0  relocations=18
+Blocks
+    name        start   size  #ins #dir #sto
+    <default>   00000  002C9   179   31    1
+Symbols
+    name        hex       dec  scope     kind      type      description
+    a        000217       535  local     relative  data      label
+    b        00021C       540  local     relative  data      label
+    c        000225       549  local     relative  data      label
+    checkc   00004B        75  local     relative  code      label
+    currch   000214       532  local     relative  data      label
+    d        00022D       557  local     relative  data      label
+    e        000234       564  local     relative  data      label
+    f        000238       568  local     relative  data      label
+    g        000241       577  local     relative  data      label
+    getch    000039        57  local     relative  code      label
+    h        000247       583  local     relative  data      label
+    halt     000036        54  local     relative  code      label
+    i        000251       593  local     relative  data      label
+    in       00020E       526  local     relative  data      label
+    isa      00011B       283  local     relative  code      label
+    isb      000121       289  local     relative  code      label
+    isc      000127       295  local     relative  code      label
+    isd      00012D       301  local     relative  code      label
+    ise      000133       307  local     relative  code      label
+    isf      000139       313  local     relative  code      label
+    isg      00013F       319  local     relative  code      label
+    ish      000145       325  local     relative  code      label
+    isi      00014B       331  local     relative  code      label
+    isj      000151       337  local     relative  code      label
+    isk      000157       343  local     relative  code      label
+    isl      00015D       349  local     relative  code      label
+    ism      000163       355  local     relative  code      label
+    isn      000169       361  local     relative  code      label
+    iso      00016F       367  local     relative  code      label
+    isp      000175       373  local     relative  code      label
+    isq      00017B       379  local     relative  code      label
+    isr      000181       385  local     relative  code      label
+    iss      000187       391  local     relative  code      label
+    ist      00018D       397  local     relative  code      label
+    isu      000193       403  local     relative  code      label
+    isv      000199       409  local     relative  code      label
+    isw      00019F       415  local     relative  code      label
+    isx      0001A5       421  local     relative  code      label
+    isy      0001AB       427  local     relative  code      label
+    isz      0001B1       433  local     relative  code      label
+    j        000257       599  local     relative  data      label
+    k        00025E       606  local     relative  data      label
+    l        000264       612  local     relative  data      label
+    m        00026D       621  local     relative  data      label
+    main     000000         0  exported  relative  code      label
+    mainl    00000A        10  local     relative  code      label
+    n        000271       625  local     relative  data      label
+    o        000276       630  local     relative  data      label
+    out      000211       529  local     relative  data      label
+    p        00027B       635  local     relative  data      label
+    printe   0001B7       439  local     relative  code      label
+    prtch    0001CA       458  local     relative  code      label
+    prtche   0001FB       507  local     relative  code      label
+    prtl     0001DD       477  local     relative  code      label
+    prtlf    00002B        43  local     relative  code      label
+    q        000283       643  local     relative  data      label
+    r        00028A       650  local     relative  data      label
+    s        000291       657  local     relative  data      label
+    sinit    000000         0  imported  relative  notlabel  
+    sp       000000         0  imported  relative  notlabel  
+    spop     000000         0  imported  relative  notlabel  
+    spush    000000         0  imported  relative  notlabel  
+    t        000299       665  local     relative  data      label
+    u        00029C       668  local     relative  data      label
+    v        0002A3       675  local     relative  data      label
+    w        0002AC       684  local     relative  data      label
+    x        0002B2       690  local     relative  data      label
+    y        0002BA       698  local     relative  data      label
+    z        0002C1       705  local     relative  data      label
+Literals
+    label   definition
+Relocations
+    address length flag symbol
+    00001        5  +    sinit
+    0003A        5  +    sp
+    0003E        5  +    spush
+    00042        5  +    sp
+    00046        5  +    spush
+    001B8        5  +    spop
+    001BC        5  +    sp
+    001C0        5  +    spop
+    001C4        5  +    sp
+    001CB        5  +    sp
+    001CF        5  +    spush
+    001D3        5  +    sp
+    001D7        5  +    spush
+    001E9        5
+    001FC        5  +    spop
+    00200        5  +    sp
+    00204        5  +    spop
+    00208        5  +    sp
